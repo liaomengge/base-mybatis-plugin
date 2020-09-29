@@ -79,7 +79,7 @@ public class ServicePlugin extends PluginAdapter {
         String domainObjectName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
         // Mapper类所在包的包名
         String mapperPackage = introspectedTable.getContext().getJavaClientGeneratorConfiguration().getTargetPackage();
-        Field mapperField = new Field("foo", FullyQualifiedJavaType.getIntInstance());
+        Field mapperField = new Field("liaomengge", FullyQualifiedJavaType.getIntInstance());
         // 设置Field的注解
         mapperField.addAnnotation("@Autowired");
         mapperField.setVisibility(JavaVisibility.PRIVATE);

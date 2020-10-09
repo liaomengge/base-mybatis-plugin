@@ -4,7 +4,7 @@ script:
   - distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-bin.zip
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
     - $HOME/.gradle/caches/

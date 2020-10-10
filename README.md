@@ -1,7 +1,6 @@
 Base Mybatis Plugin
 ======================================
 
-[![travis](https://travis-ci.org/liaomengge/base-mybatis-plugin.svg?branch=master)](https://travis-ci.org/liaomengge/base-mybatis-plugin)
 [![github stars](https://img.shields.io/github/stars/liaomengge/base-mybatis-plugin.svg)](https://github.com/liaomengge/base-mybatis-plugin/stargazers)
 [![github forks](https://img.shields.io/github/forks/liaomengge/base-mybatis-plugin.svg)](https://github.com/liaomengge/base-mybatis-plugin/network)
 [![maven center](https://img.shields.io/maven-central/v/com.github.liaomengge/base-mybatis-plugin.svg)](https://search.maven.org/search?q=g:com.github.liaomengge%20AND%20a:base-mybatis-plugin)

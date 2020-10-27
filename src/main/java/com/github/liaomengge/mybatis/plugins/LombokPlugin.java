@@ -1,4 +1,4 @@
-package cn.ly.mybatis.plugins;
+package com.github.liaomengge.mybatis.plugins;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

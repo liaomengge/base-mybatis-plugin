@@ -1,6 +1,6 @@
-package cn.ly.mybatis.plugins;
+package com.github.liaomengge.mybatis.plugins;
 
-import cn.ly.mybatis.utils.ElementUtil;
+import com.github.liaomengge.mybatis.utils.ElementUtil;
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;

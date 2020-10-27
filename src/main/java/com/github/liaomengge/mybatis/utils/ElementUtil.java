@@ -1,4 +1,4 @@
-package cn.ly.mybatis.utils;
+package com.github.liaomengge.mybatis.utils;
 
 import org.mybatis.generator.api.dom.java.JavaElement;
 

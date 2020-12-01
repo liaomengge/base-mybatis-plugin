@@ -63,7 +63,7 @@ public class JavaTypeResolverMysqlImpl extends JavaTypeResolverDefaultImpl {
     private FullyQualifiedJavaType calculateUnsignedType(IntrospectedColumn column,
                                                          FullyQualifiedJavaType defaultType) {
         String actualTypeName = column.getActualTypeName();
-        if (Objects.nonNull(actualTypeName) && actualTypeName.trim() != "") {
+        if (Objects.nonNull(actualTypeName) && !"".equalsIgnoreCase(actualTypeName.trim())) {
             if (actualTypeName.toUpperCase().contains(UNSIGNED)) {
                 FullyQualifiedJavaType javaType = UNSIGNED_JAVA_TYPE_MAP.get(column.getJdbcType());
                 if (Objects.nonNull(javaType)) {

@@ -60,7 +60,7 @@ public class ServicePlugin extends PluginAdapter {
         topLevelClass.addImportedType(new FullyQualifiedJavaType("org.springframework.stereotype.Service"));
         topLevelClass.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation" +
                 ".Autowired"));
-        topLevelClass.addImportedType(new FullyQualifiedJavaType("cn.mwee.service.base_framework.mysql.service" +
+        topLevelClass.addImportedType(new FullyQualifiedJavaType("com.github.liaomengge.service.base_framework.mysql.service" +
                 ".BaseService"));
         topLevelClass.addAnnotation("@Service(\"" + firstLetterLowerCase(domainObjectName + "Service") + "\")");
         topLevelClass.setVisibility(JavaVisibility.PUBLIC);

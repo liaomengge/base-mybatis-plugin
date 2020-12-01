@@ -1,6 +1,8 @@
 plugins {
     id 'com.github.spotbugs' version '4.5.0'
     id 'com.diffplug.spotless' version '5.6.1'
+    id 'io.codearte.nexus-staging' version '0.22.0'
+    id "de.marcphilipp.nexus-publish" version "0.4.0"
 }
 
 wrapper {
@@ -16,6 +18,8 @@ apply plugin: 'maven-publish'
 apply plugin: 'project-report'
 apply plugin: 'com.github.spotbugs'
 apply plugin: 'com.diffplug.spotless'
+apply plugin: 'io.codearte.nexus-staging'
+apply plugin: 'de.marcphilipp.nexus-publish'
 
 group = 'com.github.liaomengge'
 version = '1.0.9'

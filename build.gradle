@@ -22,7 +22,7 @@ apply plugin: 'io.codearte.nexus-staging'
 apply plugin: 'de.marcphilipp.nexus-publish'
 
 group = 'com.github.liaomengge'
-version = '1.0.9'
+version = '1.1.0'
 
 apply from: "${rootProject.projectDir}/gradle/publish-properties.gradle"
 apply from: "${rootProject.projectDir}/gradle/publish-jar.gradle"

@@ -28,48 +28,52 @@ public class JavaTypeResolverMysqlImpl extends JavaTypeResolverDefaultImpl {
     @Override
     protected FullyQualifiedJavaType overrideDefaultType(IntrospectedColumn column,
                                                          FullyQualifiedJavaType defaultType) {
-        FullyQualifiedJavaType answer = defaultType;
-
-        switch (column.getJdbcType()) {
-            case Types.BIT:
-                answer = super.calculateBitReplacement(column, defaultType);
-                break;
-            case Types.DATE:
-                answer = super.calculateDateType(column, defaultType);
-                break;
-            case Types.DECIMAL:
-            case Types.NUMERIC:
-                answer = super.calculateBigDecimalReplacement(column, defaultType);
-                break;
-            case Types.TIME:
-                answer = super.calculateTimeType(column, defaultType);
-                break;
-            case Types.TIMESTAMP:
-                answer = super.calculateTimestampType(column, defaultType);
-                break;
-            case Types.TINYINT:
-            case Types.SMALLINT:
-            case Types.INTEGER:
-            case Types.BIGINT:
-                answer = this.calculateUnsignedType(column, defaultType);
-                break;
-            default:
-                break;
+        if (isUnsignedType(column)) {
+            FullyQualifiedJavaType answer = defaultType;
+            switch (column.getJdbcType()) {
+                case Types.BIT:
+                    answer = super.calculateBitReplacement(column, defaultType);
+                    break;
+                case Types.DATE:
+                    answer = super.calculateDateType(column, defaultType);
+                    break;
+                case Types.DECIMAL:
+                case Types.NUMERIC:
+                    answer = super.calculateBigDecimalReplacement(column, defaultType);
+                    break;
+                case Types.TIME:
+                    answer = super.calculateTimeType(column, defaultType);
+                    break;
+                case Types.TIMESTAMP:
+                    answer = super.calculateTimestampType(column, defaultType);
+                    break;
+                case Types.TINYINT:
+                case Types.SMALLINT:
+                case Types.INTEGER:
+                case Types.BIGINT:
+                    answer = this.calculateUnsignedType(column, defaultType);
+                    break;
+                default:
+                    break;
+            }
+            return answer;
         }
+        return super.overrideDefaultType(column, defaultType);
+    }
 
-        return answer;
+    private boolean isUnsignedType(IntrospectedColumn column) {
+        String actualTypeName = column.getActualTypeName();
+        if (Objects.nonNull(actualTypeName) && !"".equalsIgnoreCase(actualTypeName.trim())) {
+            return actualTypeName.toUpperCase().contains(UNSIGNED);
+        }
+        return false;
     }
 
     private FullyQualifiedJavaType calculateUnsignedType(IntrospectedColumn column,
                                                          FullyQualifiedJavaType defaultType) {
-        String actualTypeName = column.getActualTypeName();
-        if (Objects.nonNull(actualTypeName) && !"".equalsIgnoreCase(actualTypeName.trim())) {
-            if (actualTypeName.toUpperCase().contains(UNSIGNED)) {
-                FullyQualifiedJavaType javaType = UNSIGNED_JAVA_TYPE_MAP.get(column.getJdbcType());
-                if (Objects.nonNull(javaType)) {
-                    return javaType;
-                }
-            }
+        FullyQualifiedJavaType javaType = UNSIGNED_JAVA_TYPE_MAP.get(column.getJdbcType());
+        if (Objects.nonNull(javaType)) {
+            return javaType;
         }
         return defaultType;
     }
